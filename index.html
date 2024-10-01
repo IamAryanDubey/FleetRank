@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gamified Website</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="#profile">My Profile</a></li>
+        <li><a href="Myteam.html">My Team</a></li>
+      </ul>
+    </nav>
+  </header>
+  <h2 id="Myprofile">My Profile</h2>
+  <main>
+    <div class="content">
+      <section id="badges">
+        <h2>Badges</h2>
+        <div class="badge" data-level="beginner">
+          <span class="badge-icon">🥉</span>
+          <span class="badge-title">Rank 10 - 15 and beyond</span>
+        </div>
+        <div class="badge" data-level="intermediate">
+          <span class="badge-icon">🥈</span>
+          <span class="badge-title">Rank 5 - 10</span>
+        </div>
+        <div class="badge" data-level="pro">
+          <span class="badge-icon">🏅</span>
+          <span class="badge-title">Rank 1 - 5</span>
+        </div>
+      </section>
+
+      <section id="tasks">
+        <h2>Tasks</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Task</th>
+              <th>Points</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Wear and dispose safety kits.</td>
+              <td>50</td>
+              <td><div class="progress-bar"><div class="progress" style="width: 70%;"></div></div></td>
+            </tr>
+            <tr>
+              <td>Instrument Reracking.</td>
+              <td>30</td>
+              <td><div class="progress-bar"><div class="progress" style="width: 40%;"></div></div></td>
+            </tr>
+            <tr>
+              <td>Maintain a star streak for 5 days.</td>
+              <td>100</td>
+              <td><div class="progress-bar"><div class="progress" style="width: 40%;"></div></div></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="Regressionmodel">
+        <h2>Data Visualization</h2>
+        <div class="graph-container">
+        <img src="rm.jpeg" id="rm">
+        </div>
+      </section>
+      
+      <section id="suggestions">
+        <h2>Suggestions</h2>
+        <div class="suggestion-box">
+          <h3>Increase Your Points</h3>
+          <ul>
+            <li>⭐ Symbol indicates that you maintained the streak of staying at same level or have upgraded from previous position.</li>
+            <li>🏋🏽‍♂️ Symbol indicates that you have either dropped below your previous position.</li>
+            <li>Complete more tasks.</li>
+            <li>Participate in team activities.</li>
+            <li>Engage with other members.</li>
+            <li>Increase the total efficiency of your FRAC.</li>
+          </ul>
+        </div>
+      </section>
+    </div>
+
+   <!-- HTML Leaderboard Section -->
+<div id="leaderboard">
+  <h2>Leaderboard</h2>
+  <label for="leaderboard-select">Select Timeframe:</label>
+  <select id="leaderboard-select" onchange="updateLeaderboard()">
+    <option value="daily">Daily</option>
+    <option value="weekly">Weekly</option>
+    <option value="monthly">Monthly</option>
+  </select>
+
+  <div class="leaderboard-section">
+    <h3>Top Performers</h3>
+    <ul id="leaderboard-list">
+      <!-- Leaderboard data will be dynamically populated here -->
+    </ul>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+<script>
+  // Load CSV Data and Update Leaderboard
+  function loadCSVData() {
+    Papa.parse("leaderboard.csv", {
+      download: true,
+      header: true,
+      complete: function(results) {
+        populateLeaderboard(results.data);
+      }
+    });
+  }
+
+  // Populate the leaderboard from the parsed CSV data
+  function populateLeaderboard(data) {
+    const leaderboardList = document.getElementById('leaderboard-list');
+    leaderboardList.innerHTML = ''; // Clear existing data
+
+    // Sort data by score
+    data.sort((a, b) => b.score - a.score);
+
+    // Add items to the leaderboard
+    data.forEach((item, index) => {
+      const li = document.createElement('li');
+      li.classList.add('leaderboard-item');
+
+      // Add class for top 3 performers
+      if (index === 0) li.classList.add('first');
+      else if (index === 1) li.classList.add('second');
+      else if (index === 2) li.classList.add('third');
+
+      // Add rank icon based on position
+      const rankIcon = document.createElement('span');
+      rankIcon.classList.add('rank-icon');
+      if (index === 0) rankIcon.innerHTML = '🥇';
+      else if (index === 1) rankIcon.innerHTML = '🥈';
+      else if (index === 2) rankIcon.innerHTML = '🥉';
+      else rankIcon.innerHTML = `#${index + 1}`;
+
+      li.innerHTML = `
+        ${rankIcon.outerHTML} <span>${item.name}</span> <span>${item.score}</span>
+      `;
+      leaderboardList.appendChild(li);
+    });
+  }
+
+  // Call the function to load data when the page loads
+  window.onload = loadCSVData;
+</script>
+
+  </main>
+
+  <footer>
+    <h2>About Us</h2>
+    <p>We are a team dedicated to creating engaging and interactive experiences.</p>
+    <p>Contact us at <a href="mailto:contact@example.com">bestteamathackathon.com</a></p>
+  </footer>
+
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>

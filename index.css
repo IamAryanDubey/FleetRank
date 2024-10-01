@@ -1,0 +1,394 @@
+/* Basic Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  body {
+    background-image: url("bg.jpeg");
+    background-size: contain;
+    background-color: #1d1f27;
+    color: #f0f0f0;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+  
+  /* Header */
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #2b2d42;
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  /* Navigation Menu */
+  
+  nav {
+    width: 100%;
+  }
+nav ul {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  nav ul li {
+    flex: 1;
+    text-align: center;
+  }
+  
+  nav ul li a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 10px 0;
+    background-color: #444;
+    border-radius: 15px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  nav ul li a:hover {
+    background-color: #555;
+    color: #1d1f27;
+    background-color: #f0f0f0;
+  }
+  
+  /* Main Content Layout */
+  #Myprofile{
+    padding-top: 7%;
+    margin-left: 45%;
+  }
+  main {
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    gap: 20px;
+  }
+  .content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  /* Sections */
+  section {
+    border-radius: 15px;
+    background-color: #2b2d42;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    animation: fadeInUp 0.6s ease-in;
+  }
+  /* Badges */
+  #badges .badge {
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    margin: 10px;
+    background-color: #444;
+    color: #f0f0f0;
+    border-radius: 15px;
+    font-size: 1em;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    animation: bounceIn 0.4s ease-in;
+  }
+  
+  #badges .badge-icon {
+    font-size: 1.5em;
+    margin-right: 10px;
+  }
+  
+  #badges .badge-title {
+    font-size: 1em;
+  }
+  
+  #badges .badge:hover {
+    transform: scale(1.1);
+  }
+  #Regressionmodel{
+    height: 380px;
+  }
+  /* Tasks Table */
+  #tasks table {
+    width: 100%;
+    border-collapse: collapse;
+    color: #f0f0f0;
+    border-radius: 15px;
+    overflow: hidden;
+  }
+  
+  #tasks table th, #tasks table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #444;
+  }
+  
+  #tasks tbody tr:hover {
+    background-color: #555;
+    transition: background-color 0.3s ease;
+    transform: scale(1.02);
+  }
+  
+  /* Progress Bar */
+  .progress-bar {
+    width: 100%;
+    background-color: #444;
+    border-radius: 10px;
+    overflow: hidden;
+    height: 10px;
+  }
+  
+  .progress {
+    height: 100%;
+    background-color: #4caf50;
+    border-radius: 10px;
+    transition: width 0.3s ease;
+  }
+
+
+ /* Leaderboard Section */
+#leaderboard {
+  width: 500px;
+  background-color: #2b2d42;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: -5px 0 10px rgba(0, 0, 0, 0.3);
+  animation: fadeInUp 0.6s ease-in;
+}
+
+.leaderboard-section {
+  margin-bottom: 20px;
+}
+
+.leaderboard-section h3 {
+  text-align: center;
+  color: #f0f0f0;
+  margin-bottom: 10px;
+}
+
+#leaderboard-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#leaderboard-list li {
+  margin: 10px 0;
+  padding: 10px;
+  background-color: #444;
+  color: white;
+  border-radius: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+#leaderboard-list li:hover {
+  background-color: #555;
+  transform: scale(1.05);
+}
+
+/* Styling top 3 items */
+#leaderboard-list li:first-child {
+  background-color: #ffd700; /* Gold */
+  color: #000;
+}
+
+#leaderboard-list li:nth-child(2) {
+  background-color: #c0c0c0; /* Silver */
+  color: #000;
+}
+
+#leaderboard-list li:nth-child(3) {
+  background-color: #cd7f32; /* Bronze */
+  color: #000;
+}
+
+.rank-icon {
+  margin-right: 10px;
+  font-size: 1.2em;
+}
+
+.change {
+  font-size: 1em;
+  display: inline-block;
+  width: 20px;
+  text-align: center;
+}
+
+.change.up {
+  color: #4caf50;
+}
+
+.change.down {
+  color: #f44336;
+}
+
+.change.no-change {
+  color: #aaa; /* Gray color for no change */
+}
+
+/* Style for the dropdown */
+#leaderboard-select {
+  padding: 5px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  background-color: #444;
+  color: white;
+  border: none;
+  outline: none;
+}
+
+/* Keyframes for Animations */
+@keyframes fadeInUp {
+  from {
+      transform: translateY(50px);
+      opacity: 0;
+  }
+  to {
+      transform: translateY(0);
+      opacity: 1;
+  }
+}
+  /* Footer */
+  footer {
+    width: 97%;
+    margin-left: 1.5%;
+    background-color: #2b2d42;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    border-radius: 15px;
+    margin-top: 20px;
+  }
+  
+  footer h2 {
+    margin-bottom: 10px;
+  }
+  
+  footer p {
+    margin-bottom: 5px;
+  }
+  
+  /* Keyframes for Animations */
+  @keyframes fadeInUp {
+    from {
+      transform: translateY(50px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes bounceIn {
+    0% {
+      transform: scale(0.3);
+    }
+    50% {
+      transform: scale(1.05);
+    }
+    70% {
+      transform: scale(0.9);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  /* Style for the dropdown */
+#leaderboard-select {
+    padding: 5px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    background-color: #444;
+    color: white;
+    border: none;
+    outline: none;
+  }
+/* Suggestions Section */
+#suggestions {
+    border-radius: 15px;
+    background-color: #2b2d42;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    animation: fadeInUp 1.2s ease-in;
+  }
+  
+  .suggestion-box {
+    background-color: #444;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    margin-top: 20px;
+    color: #f0f0f0;
+  }
+  
+  .suggestion-box h3 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    text-align: center;
+    color: #f0f0f0;
+  }
+  
+  .suggestion-box ul {
+    list-style-type: disc;
+    padding-left: 20px;
+  }
+  
+  .suggestion-box ul li {
+    margin-bottom: 10px;
+  }
+  
+  /* Aligning Suggestion Box with other content */
+  #suggestions {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  
+  .content {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+  }
+  
+  .fracs {
+    font-size: 0.8em;
+    color: #aaa;
+  }
+  
+#rm{
+  padding-bottom: 45px;
+  padding-right: 60px;
+  width: 900px;
+  height: 350px;
+}
+.leaderboard-item.first {
+  background-color: #ffd700; /* Gold */
+  color: #000;
+}
+.leaderboard-item.second {
+  background-color: #c0c0c0; /* Silver */
+  color: #000;
+}
+.leaderboard-item.third {
+  background-color: #cd7f32; /* Bronze */
+  color: #000;
+}

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gamified Website</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="#profile">My Profile</a></li>
+        <li><a href="Myteam.html">My Team</a></li>
+      </ul>
+    </nav>
+  </header>
+  <h2 id="Myprofile">My Profile</h2>
+  <main>
+    <div class="content">
+      <section id="badges">
+        <h2>Badges</h2>
+        <div class="badge" data-level="beginner">
+          <span class="badge-icon">🥉</span>
+          <span class="badge-title">Rank 10 - 15 and beyond</span>
+        </div>
+        <div class="badge" data-level="intermediate">
+          <span class="badge-icon">🥈</span>
+          <span class="badge-title">Rank 5 - 10</span>
+        </div>
+        <div class="badge" data-level="pro">
+          <span class="badge-icon">🏅</span>
+          <span class="badge-title">Rank 1 - 5</span>
+        </div>
+      </section>
+
+      <section id="tasks">
+        <h2>Tasks</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Task</th>
+              <th>Points</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Wear and dispose safety kits.</td>
+              <td>50</td>
+              <td><div class="progress-bar"><div class="progress" style="width: 70%;"></div></div></td>
+            </tr>
+            <tr>
+              <td>Instrument Reracking.</td>
+              <td>30</td>
+              <td><div class="progress-bar"><div class="progress" style="width: 40%;"></div></div></td>
+            </tr>
+            <tr>
+              <td>Maintain a star streak for 5 days.</td>
+              <td>100</td>
+              <td><div class="progress-bar"><div class="progress" style="width: 40%;"></div></div></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="Regressionmodel">
+        <h2>Regression Model</h2>
+        <div class="graph-container">
+        </div>
+      </section>
+      
+      <section id="suggestions">
+        <h2>Suggestions</h2>
+        <div class="suggestion-box">
+          <h3>Increase Your Points</h3>
+          <ul>
+            <li>⭐ Symbol indicates that you maintained the streak of staying at same level or have upgraded from previous position.</li>
+            <li>🏋🏽‍♂️ Symbol indicates that you have either dropped below your previous position.</li>
+            <li>Complete more tasks.</li>
+            <li>Participate in team activities.</li>
+            <li>Engage with other members.</li>
+            <li>Increase the total efficiency of your FRAC.</li>
+          </ul>
+        </div>
+      </section>
+    </div>
+
+    <div id="leaderboard">
+        <h2>Leaderboard</h2>
+        <br>
+        <label for="leaderboard-select">Select Timeframe:</label>
+        <select id="leaderboard-select" onchange="updateLeaderboard()">
+          <option value="daily">Daily</option>
+          <option value="weekly">Weekly</option>
+          <option value="monthly">Monthly</option>
+        </select>
+  
+        <div class="leaderboard-section">
+            <ul class="leaderboard-list">
+              <li>FRAC 01 <span class="streak-mark">⭐</span><span class="points">1</span> <span class="change up">▲</span></li>
+              <li>FRAC 02 <span class="streak-mark">⭐</span><span class="points">2</span> <span class="change no-change">-</span></li>
+              <li>FRAC 03 <span class="streak-down">🏋🏽‍♂️</span><span class="points">3</span> <span class="change down">▼</span></li>
+              <li>FRAC 04 <span class="streak-mark">⭐</span><span class="points">4</span> <span class="change up">▲</span></li>
+              <li>FRAC 05 <span class="streak-mark">⭐</span><span class="points">5</span> <span class="change up">▲</span></li>
+              <li>FRAC 06 <span class="streak-mark">⭐</span><span class="points">6</span> <span class="change up">▲</span></li>
+              <li>FRAC 07 <span class="streak-mark">⭐</span><span class="points">7</span> <span class="change up">▲</span></li>
+              <li>FRAC 08 <span class="streak-down">🏋🏽‍♂️</span><span class="points">8</span> <span class="change down">▼</span></li>
+              <li>FRAC 09 <span class="streak-down">🏋🏽‍♂️</span><span class="points">9</span> <span class="change down">▼</span></li>
+              <li>FRAC 10 <span class="streak-mark">⭐</span><span class="points">10</span> <span class="change up">▲</span></li>
+              <li>FRAC 11 <span class="streak-mark">⭐</span><span class="points">11</span> <span class="change up">▲</span></li>
+              <li>FRAC 12 <span class="streak-mark">⭐</span><span class="points">12</span> <span class="change up">▲</span></li>
+              <li>FRAC 13 <span class="streak-mark">⭐</span><span class="points">13</span> <span class="change up">▲</span></li>
+              <li>FRAC 14 <span class="streak-down">🏋🏽‍♂️</span><span class="points">14</span> <span class="cchange down">▼</span></li>
+              <li>FRAC 15 <span class="streak-mark">⭐</span><span class="points">15</span> <span class="change up">▲</span></li>
+              <li>FRAC 16 <span class="streak-mark">⭐</span><span class="points">16</span> <span class="change up">▲</span></li>
+              <li>FRAC 17 <span class="streak-down">🏋🏽‍♂️</span><span class="points">17</span> <span class="change down">▼</span></li>
+              <li>FRAC 18 <span class="streak-mark">⭐</span><span class="points">18</span> <span class="change up">▲</span></li>
+              <li>FRAC 19 <span class="streak-mark">⭐</span><span class="points">19</span> <span class="change up">▲</span></li>
+            </ul>
+        </div>
+  </main>
+
+  <footer>
+    <h2>About Us</h2>
+    <p>We are a team dedicated to creating engaging and interactive experiences.</p>
+    <p>Contact us at <a href="mailto:contact@example.com">bestteamathackathon.com</a></p>
+  </footer>
+
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <script src="index.js"></script>
+</body>
+</html>
